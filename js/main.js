@@ -25,7 +25,7 @@ function getFetch(){
         document.querySelector('h2').innerText = data.drinks[0].strDrink //adds drink name to dom
 
         document.querySelector('.steps').innerText = data.drinks[0].strInstructions //adds drink instructions to dom
-
+        document.querySelector('ul').innerHTML = ''
         for (let i = 1; i<= 15; i++) { //adds list of ingredients
           let ingredients = data.drinks[0][`strIngredient${i}`]
           let measurements = data.drinks[0][`strMeasure${i}`]
@@ -46,6 +46,7 @@ function getFetch(){
             document.querySelector('#ingredients').append(li)
           }
         }
+        document.querySelector('#otherBevs').innerHTML = ''
         for (let i=1; i<data.drinks.length; i++) { //adds similar query responses to nav bar
 
             let li = document.createElement('li')
