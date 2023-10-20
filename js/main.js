@@ -16,9 +16,9 @@ function getFetch(){
   
 
   fetch(url)
-      .then(res => res.json()) // parse response as JSON
+      .then(res => res.json()) // parse response as JSON   
       .then(data => {
-        console.log(data) 
+        console.log(data)
 
         document.querySelector('img').src = `${data.drinks[0].strDrinkThumb}` //adds picture to dom
 
