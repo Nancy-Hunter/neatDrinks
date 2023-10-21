@@ -6,7 +6,7 @@ document.querySelector("html").addEventListener("keypress", function (press) {
 		getFetch();
 	}
 }); //adds event listener for input bar (click)
-document.querySelector('li').addEventListener('click', getFetch)
+document.querySelectorAll('li').addEventListener('click', getFetch)
 //adds event listener for nav bar (click) DOESNT WORK nav bar needs anchor tags? maybe a class? needs to change choice to clicked value instead of input value
 
 function getFetch(){
@@ -18,7 +18,7 @@ function getFetch(){
   fetch(url)
       .then(res => res.json()) // parse response as JSON   
       .then(data => {
-        console.log(data)
+        console.log(data) 
 
         document.querySelector('img').src = `${data.drinks[0].strDrinkThumb}` //adds picture to dom
 
