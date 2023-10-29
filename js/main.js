@@ -1,19 +1,22 @@
 
-document.querySelector('button').addEventListener('click', getFetch)
+let choice 
+
+document.querySelector('button').addEventListener('click', function () {
+  choice = document.querySelector('input').value.toLowerCase() //user input
+  getFetch()
+})
 //adds event listener for input bar (click)
 document.querySelector("html").addEventListener("keypress", function (press) {
 	if (press.key === "Enter") {
-		getFetch();
+    choice = document.querySelector('input').value.toLowerCase()
+		getFetch()
 	}
-}); //adds event listener for input bar (click)
-document.querySelectorAll('li').addEventListener('click', getFetch)
-//adds event listener for nav bar (click) DOESNT WORK nav bar needs anchor tags? maybe a class? needs to change choice to clicked value instead of input value
+}) //adds event listener for input bar (click)
+
 
 function getFetch(){
-  const choice = document.querySelector('input').value.toLowerCase() //user input
+ 
   const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+ choice //appends api endpoint with user choice
-
-  
 
   fetch(url)
       .then(res => res.json()) // parse response as JSON   
@@ -46,7 +49,8 @@ function getFetch(){
             document.querySelector('#ingredients').append(li)
           }
         }
-        document.querySelector('#otherBevs').innerHTML = ''
+
+        document.querySelector('#otherBevs').innerHTML = '' //empties previous responses
         for (let i=1; i<data.drinks.length; i++) { //adds similar query responses to nav bar
 
             let li = document.createElement('li')
@@ -54,6 +58,15 @@ function getFetch(){
             li.textContent = data.drinks[i].strDrink
 
             document.querySelector('#otherBevs').append(li)
+            document.getElementById('otherBevs').addEventListener('click', function (e) {
+              //not here
+              if(e.target && e.target.nodeName == "LI") {
+                // List item found!  Output the ID!
+                console.log(e.target.textContent);
+            }
+              choice =  e.target.textContent
+              getFetch () //does getFetch with new choice
+            })
         }
          
       })
