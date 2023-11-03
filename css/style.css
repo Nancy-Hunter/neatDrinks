@@ -13,16 +13,16 @@
 body {
   background-image: url("../assets/bar.jpg");
   background-size: auto;
-  color: rgb(245,247,242);
+  color: #FCF7DE;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
 }
 img{
-  display: block;
+  width: 80%;
   border-radius: .5em;
-  height: 20em;
   margin: 1.5em 0 3em 0;
+  border: .2em solid;
 }
 
 .off{
@@ -32,6 +32,32 @@ img{
 .intro {
   margin: 4em 0 0 7em;
   
+}
+
+.drinkCard span {
+  display: inline-block;
+  width: 45%;
+}
+
+.previous {
+  margin: .5em 0 1.5em .5em; 
+  padding: 0 .5em;
+}
+
+.next {
+  margin: .5em .5em 1.5em 0;
+  padding: 0 .5em 0 2em;
+}
+
+.drinkCard {
+  width: 40%;
+  background-color: #7EA195;
+  border-radius: 1em;
+  border: .4em solid;
+}
+
+.drinkCard div {
+  padding: 1.5em 3em 0;
 }
 
 main {
@@ -48,6 +74,9 @@ li {
 nav li {
   padding: .3em 0;
 }
+li:hover {
+  cursor:pointer;
+}
 ul {
   padding: 0;
 }
@@ -60,8 +89,13 @@ h5 {
   font-size: 1.2em;
 }
 input, button {
-  background-color: rgb(245,247,242);
+  background-color: #FCF7DE;
+  border: .15em solid #7EA195;
+  border-radius: .2em;
+  padding: .3em .7em;
 }
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+/* 850px needs media query */
