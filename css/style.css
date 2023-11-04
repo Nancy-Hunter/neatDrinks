@@ -37,6 +37,7 @@ img{
 .drinkCard span {
   display: inline-block;
   width: 45%;
+  cursor: pointer;
 }
 
 .previous {
@@ -50,7 +51,7 @@ img{
 }
 
 .drinkCard {
-  width: 40%;
+  width: 35%;
   background-color: #7EA195;
   border-radius: 1em;
   border: .4em solid;
