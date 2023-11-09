@@ -31,13 +31,13 @@ function getFetch(){
       .then(data => {
         console.log(data) 
 
-        document.querySelector('img').src = `${data.drinks[0].strDrinkThumb}` //adds/replaces picture to dom
+        document.querySelector('.drinkCard img').src = `${data.drinks[0].strDrinkThumb}` //adds/replaces picture to dom
 
         document.querySelector('h2').innerText = data.drinks[0].strDrink //adds/replaces drink name to dom
 
         document.querySelector('.steps').innerText = data.drinks[0].strInstructions //adds/replaces drink instructions to dom
 
-        document.querySelector('ul').innerHTML = '' //clears old ingredients if any
+        document.querySelector('#ingredients').innerHTML = '' //clears old ingredients if any
           for (let i = 1; i<= 15; i++) { //adds list of ingredients
             let ingredients = data.drinks[0][`strIngredient${i}`]
             let measurements = data.drinks[0][`strMeasure${i}`]
@@ -48,7 +48,7 @@ function getFetch(){
 
               li.innerHTML = `${measurements} ${ingredients}`
 
-              document.querySelector('ul').append(li)
+              document.querySelector('#ingredients').append(li)
             
             } else if (ingredients) { //adds ingredients without measurements
               let li = document.createElement('li')
@@ -65,7 +65,8 @@ function getFetch(){
           console.log(`error ${err}`)
       });
 
-      document.querySelector('main').classList.remove('off')
+      document.querySelector('.drinkCard').classList.remove('off')
+      document.querySelector('nav div+div').classList.remove('off')
       
 }
 
